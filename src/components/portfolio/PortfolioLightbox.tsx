@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Minus, Plus, X } from "lucide-react";
@@ -36,10 +42,17 @@ export default function PortfolioLightbox({
   const [isDragging, setIsDragging] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  const dragStartRef = useRef<{ mx: number; my: number; px: number; py: number } | null>(null);
+  const dragStartRef = useRef<{
+    mx: number;
+    my: number;
+    px: number;
+    py: number;
+  } | null>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Reset zoom & pan when slide changes
   useEffect(() => {
@@ -105,7 +118,12 @@ export default function PortfolioLightbox({
     if (zoom <= 1) return;
     e.preventDefault();
     setIsDragging(true);
-    dragStartRef.current = { mx: e.clientX, my: e.clientY, px: pan.x, py: pan.y };
+    dragStartRef.current = {
+      mx: e.clientX,
+      my: e.clientY,
+      px: pan.x,
+      py: pan.y,
+    };
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -189,7 +207,11 @@ export default function PortfolioLightbox({
             <Image
               key={allImages[currentIndex]}
               src={allImages[currentIndex]}
-              alt={isCarousel ? `${alt} — ${currentIndex + 1} of ${allImages.length}` : alt}
+              alt={
+                isCarousel
+                  ? `${alt} — ${currentIndex + 1} of ${allImages.length}`
+                  : alt
+              }
               fill
               sizes="100vw"
               className="object-contain"
@@ -274,7 +296,6 @@ export default function PortfolioLightbox({
         aria-label={`Open full view of ${alt}`}
       >
         {children}
-        <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent transition group-hover:ring-[var(--accent)]/40" />
         <span className="pointer-events-none absolute bottom-4 right-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[var(--primary)] opacity-0 shadow-sm transition group-hover:opacity-100">
           {isCarousel ? `View ${allImages.length} images` : "Click to expand"}
         </span>

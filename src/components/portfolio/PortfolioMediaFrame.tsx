@@ -25,7 +25,7 @@ export default function PortfolioMediaFrame({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-2xl border border-[var(--border-light)] ${className ?? ""}`}
+      className={`relative w-full overflow-hidden rounded-2xl ${className ?? ""}`}
     >
       {preview ? (
         <Image
