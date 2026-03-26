@@ -1,4 +1,5 @@
-﻿import PortfolioMediaBadge from "./PortfolioMediaBadge";
+import PortfolioLightbox from "./PortfolioLightbox";
+import PortfolioMediaBadge from "./PortfolioMediaBadge";
 import PortfolioMediaFrame from "./PortfolioMediaFrame";
 import { featuredWork } from "./portfolio-data";
 
@@ -25,7 +26,12 @@ export default function PortfolioFeatured() {
               key={item.id}
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--border-light)] bg-[var(--background-alt)] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative">
+              <PortfolioLightbox
+                src={item.preview}
+                alt={item.title}
+                enabled={item.type === "image"}
+                className="relative"
+              >
                 <PortfolioMediaFrame
                   title={item.title}
                   type={item.type}
@@ -35,7 +41,7 @@ export default function PortfolioFeatured() {
                 <div className="absolute left-4 top-4">
                   <PortfolioMediaBadge type={item.type} />
                 </div>
-              </div>
+              </PortfolioLightbox>
 
               <div className="mt-6 flex flex-1 flex-col">
                 <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">
@@ -73,4 +79,3 @@ export default function PortfolioFeatured() {
     </section>
   );
 }
-

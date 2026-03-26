@@ -1,4 +1,12 @@
-﻿import { portfolioCapabilities } from "./portfolio-data";
+import { Target, Users, TrendingUp, LucideIcon } from "lucide-react";
+
+import { portfolioCapabilities } from "./portfolio-data";
+
+const iconMap: Record<string, LucideIcon> = {
+  Target,
+  Users,
+  TrendingUp,
+};
 
 export default function PortfolioCapabilities() {
   return (
@@ -18,22 +26,27 @@ export default function PortfolioCapabilities() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {portfolioCapabilities.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-[var(--border-light)] bg-[var(--background-alt)] p-6 shadow-sm"
-            >
-              <h3 className="text-xl font-bold text-[var(--primary)]">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm text-[var(--foreground-light)]">
-                {item.description}
-              </p>
-            </div>
-          ))}
+          {portfolioCapabilities.map((item) => {
+            const Icon = iconMap[item.icon] ?? Target;
+            return (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-[var(--border-light)] bg-[var(--background-alt)] p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--primary)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--foreground-light)]">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-

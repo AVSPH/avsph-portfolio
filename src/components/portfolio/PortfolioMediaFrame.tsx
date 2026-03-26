@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import { FileText, Image as ImageIcon } from "lucide-react";
 
 import { PortfolioMediaType } from "./portfolio-data";
@@ -8,6 +8,11 @@ type PortfolioMediaFrameProps = {
   type: PortfolioMediaType;
   preview?: string;
   className?: string;
+};
+
+const placeholderStyles: Record<PortfolioMediaType, string> = {
+  pdf: "bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)]",
+  image: "bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)]",
 };
 
 export default function PortfolioMediaFrame({
@@ -20,7 +25,7 @@ export default function PortfolioMediaFrame({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-2xl border border-[var(--border-light)] bg-[var(--background-alt)] ${className ?? ""}`}
+      className={`relative w-full overflow-hidden rounded-2xl border border-[var(--border-light)] ${className ?? ""}`}
     >
       {preview ? (
         <Image
@@ -31,14 +36,17 @@ export default function PortfolioMediaFrame({
           className="object-cover"
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-[var(--muted)]">
-          <Icon className="h-8 w-8" />
-          <span className="text-[11px] font-semibold uppercase tracking-widest">
-            Preview Placeholder
+        <div
+          className={`flex h-full w-full flex-col items-center justify-center gap-3 ${placeholderStyles[type]}`}
+        >
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20">
+            <Icon className="h-6 w-6 text-white" />
+          </div>
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-white/80">
+            {title}
           </span>
         </div>
       )}
     </div>
   );
 }
-

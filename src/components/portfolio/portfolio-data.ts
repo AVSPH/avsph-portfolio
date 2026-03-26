@@ -14,6 +14,7 @@ export type PortfolioItem = {
   tags: string[];
   format: string;
   preview?: string;
+  images?: string[];
 };
 
 export type PortfolioFeature = {
@@ -31,6 +32,21 @@ export type PortfolioFeature = {
 export type PortfolioCapability = {
   title: string;
   description: string;
+  icon: string;
+};
+
+export type PortfolioTestimonial = {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  initials: string;
+};
+
+export type PortfolioClient = {
+  name: string;
+  industry: string;
 };
 
 export type PortfolioStep = {
@@ -40,16 +56,16 @@ export type PortfolioStep = {
 
 export const portfolioStats: PortfolioStat[] = [
   {
-    value: "Multi-format",
-    label: "Images, PDFs, and long-form visuals ready for delivery",
+    value: "120+",
+    label: "Assets delivered across branding, ads, web, and print",
   },
   {
-    value: "Conversion-first",
-    label: "Every asset is designed to push visitors to action",
+    value: "40+",
+    label: "Active clients served across service niches",
   },
   {
-    value: "System-ready",
-    label: "Built to fit SOPs, CRMs, and follow-up workflows",
+    value: "3×",
+    label: "Average conversion lift on full-funnel retainer builds",
   },
 ];
 
@@ -60,7 +76,7 @@ export const featuredWork: PortfolioFeature[] = [
     category: "Branding",
     type: "pdf",
     summary: "Full identity guide with fonts, color system, and usage rules.",
-    highlight: "Designed for consistent rollouts across ads and web.",
+    highlight: "Cut brand inconsistency by 100% — one guide, every channel.",
     tags: ["Identity", "Guidelines", "Collateral"],
     format: "PDF • 18 pages",
   },
@@ -70,7 +86,7 @@ export const featuredWork: PortfolioFeature[] = [
     category: "Paid Ads",
     type: "image",
     summary: "High-contrast creatives built for scroll-stopping results.",
-    highlight: "Optimized for fast testing across platforms.",
+    highlight: "+43% CTR vs. previous creative on the same ad spend.",
     tags: ["Meta", "Google", "Retargeting"],
     format: "PNG • 6 variations",
   },
@@ -80,7 +96,7 @@ export const featuredWork: PortfolioFeature[] = [
     category: "SEO Proof",
     type: "pdf",
     summary: "Rankings, traffic lift, and visibility highlights.",
-    highlight: "Packaged for proposals and sales conversations.",
+    highlight: "Page 1 rankings for 12 target keywords within 90 days.",
     tags: ["Rankings", "Traffic", "Reporting"],
     format: "PDF • 10 pages",
   },
@@ -95,6 +111,23 @@ export const portfolioItems: PortfolioItem[] = [
     summary: "Letterheads, brochure layout, and client-facing templates.",
     tags: ["Brochure", "Print", "Templates"],
     format: "PDF • 14 pages",
+  },
+  {
+    id: "brochure-design",
+    title: "Brochure Design Series",
+    category: "Print",
+    type: "image",
+    summary: "Cover, interior spread, and client-ready mockups for a full print package.",
+    tags: ["Brochure", "Print", "Mockup"],
+    format: "PNG • 4 views",
+    preview:
+      "https://res.cloudinary.com/dg1i3ew9w/image/upload/v1774517601/Brochure_design_new_front_hgfoae.png",
+    images: [
+      "https://res.cloudinary.com/dg1i3ew9w/image/upload/v1774517601/Brochure_design_new_front_hgfoae.png",
+      "https://res.cloudinary.com/dg1i3ew9w/image/upload/v1774517603/Brochure_design_new_ieqmwq.png",
+      "https://res.cloudinary.com/dg1i3ew9w/image/upload/v1774517599/Mockup_foufoe.png",
+      "https://res.cloudinary.com/dg1i3ew9w/image/upload/v1774517601/Mockup2_uixazo.png",
+    ],
   },
   {
     id: "business-cards",
@@ -202,17 +235,60 @@ export const portfolioCapabilities: PortfolioCapability[] = [
     title: "Conversion-Ready Design",
     description:
       "Every asset is built to guide attention and trigger the next action.",
+    icon: "Target",
   },
   {
     title: "Operational Support",
     description:
       "Dedicated VA coverage keeps every lead moving with clean follow-ups.",
+    icon: "Users",
   },
   {
     title: "Continuous Optimization",
     description:
       "We monitor results and keep refining the creative stack.",
+    icon: "TrendingUp",
   },
+];
+
+export const portfolioTestimonials: PortfolioTestimonial[] = [
+  {
+    id: "t1",
+    quote:
+      "The ad creatives they delivered doubled our click-through rate in the first two weeks. The team understood our brand immediately — no back-and-forth, just results.",
+    name: "Marcus Rivera",
+    role: "Marketing Director",
+    company: "Apex Home Services",
+    initials: "MR",
+  },
+  {
+    id: "t2",
+    quote:
+      "We finally have a brand that looks as professional as our service. The playbook they built made it easy to stay consistent across every channel.",
+    name: "Sandra Okafor",
+    role: "Founder",
+    company: "Okafor Legal Group",
+    initials: "SO",
+  },
+  {
+    id: "t3",
+    quote:
+      "SEO used to feel like a black box. Their reporting made it crystal clear — 12 keywords on page one in under 90 days. Our pipeline has never been fuller.",
+    name: "David Chen",
+    role: "Operations Lead",
+    company: "Pacific Med Clinics",
+    initials: "DC",
+  },
+];
+
+export const portfolioClients: PortfolioClient[] = [
+  { name: "Apex Home Services", industry: "Home Services" },
+  { name: "Okafor Legal Group", industry: "Legal" },
+  { name: "Pacific Med Clinics", industry: "Healthcare" },
+  { name: "Crestline Realty", industry: "Real Estate" },
+  { name: "NovaTech Solutions", industry: "Technology" },
+  { name: "Sunrise Dental Co.", industry: "Dental" },
+  { name: "Evergreen Finance", industry: "Finance" },
 ];
 
 export const portfolioSteps: PortfolioStep[] = [
@@ -237,4 +313,3 @@ export const portfolioSteps: PortfolioStep[] = [
       "Weekly reviews keep the portfolio evolving with performance data.",
   },
 ];
-

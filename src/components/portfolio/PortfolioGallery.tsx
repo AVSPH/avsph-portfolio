@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 import PortfolioMediaBadge from "./PortfolioMediaBadge";
 import PortfolioMediaFrame from "./PortfolioMediaFrame";
+import PortfolioLightbox from "./PortfolioLightbox";
 import { portfolioItems } from "./portfolio-data";
 
 export default function PortfolioGallery() {
@@ -67,7 +68,13 @@ export default function PortfolioGallery() {
               key={item.id}
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--border-light)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative p-4">
+              <PortfolioLightbox
+                src={item.preview}
+                images={item.images}
+                alt={item.title}
+                enabled={item.type === "image"}
+                className="relative p-4"
+              >
                 <PortfolioMediaFrame
                   title={item.title}
                   type={item.type}
@@ -77,7 +84,7 @@ export default function PortfolioGallery() {
                 <div className="absolute left-6 top-6">
                   <PortfolioMediaBadge type={item.type} />
                 </div>
-              </div>
+              </PortfolioLightbox>
 
               <div className="flex flex-1 flex-col px-6 pb-6">
                 <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">

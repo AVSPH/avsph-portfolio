@@ -5,15 +5,14 @@ import { ArrowRight, Grid2X2, Layers } from "lucide-react";
 export default function PortfolioHero() {
   return (
     <section className="relative overflow-hidden bg-[var(--background-alt)] pt-32 pb-20">
-      <div className="absolute right-0 top-0 h-[520px] w-[520px] -translate-y-1/2 translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 h-[520px] w-[520px] translate-y-1/2 -translate-x-1/2 rounded-full bg-[var(--accent)]/10 blur-3xl" />
+
 
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[var(--border-light)] bg-white/80 px-4 py-2 shadow-sm">
               <Image
-                src="/assets/logo.jpeg"
+                src="/logo.jpeg"
                 alt="Advanced Virtual Staff logo"
                 width={40}
                 height={40}
