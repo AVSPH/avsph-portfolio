@@ -7,6 +7,7 @@ import {
   Layers,
   Sparkles,
 } from "lucide-react";
+import PortfolioGrid from "./PortfolioGrid";
 
 export default function PortfolioHero() {
   return (
@@ -14,7 +15,6 @@ export default function PortfolioHero() {
       id="home"
       className="relative overflow-hidden bg-white pt-32 pb-20"
     >
-
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
           <div>
@@ -62,76 +62,7 @@ export default function PortfolioHero() {
           </div>
 
           <div className="relative">
-            <div className="rounded-3xl border border-[var(--border-light)] bg-[var(--background-alt)] p-6 shadow-xl md:p-8">
-              <div className="flex items-center gap-4">
-                <Image
-                  src="/logo.jpeg"
-                  alt="Advanced Virtual Staff logo"
-                  width={72}
-                  height={72}
-                  className="rounded-2xl border border-[var(--border-light)]"
-                />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-[var(--muted)]">
-                    Advanced Virtual Staff Philippines
-                  </p>
-                  <h2 className="mt-1 text-2xl font-bold text-[var(--primary)]">
-                    Company Snapshot
-                  </h2>
-                  <p className="text-sm text-[var(--foreground-light)]">
-                    Recruitment + Training + Ongoing Support
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4">
-                <div className="rounded-2xl border border-[var(--border-light)] bg-white p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
-                      <Layers className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--primary)]">
-                        What This Page Covers
-                      </p>
-                      <p className="text-xs text-[var(--muted)]">
-                        Proof assets across campaigns and operations
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-[var(--border-light)] bg-white p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]">
-                        <Grid2X2 className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-[var(--primary)]">
-                          Category Filters
-                        </p>
-                        <p className="text-xs text-[var(--muted)]">
-                          Search and browse by campaign type
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-[var(--border-light)] bg-white p-4">
-                    <p className="text-xs uppercase tracking-widest text-[var(--muted)]">
-                      Included Proof
-                    </p>
-                    <p className="mt-2 text-sm font-semibold text-[var(--primary)]">
-                      Branding • Ads • SEO • Social
-                    </p>
-                    <p className="text-xs text-[var(--muted)]">
-                      Built for quick client review
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PortfolioGrid />
           </div>
         </div>
       </div>
